@@ -5,6 +5,8 @@
 local discipline = require("safalnpane.discipline")
 discipline.cowboy()
 
+require("safalnpane.explorer")
+
 local keymap = vim.keymap
 
 -- Use Explorer
