@@ -1,11 +1,6 @@
-export ZSH="$HOME/.oh-my-zsh"
-ZSH_THEME="robbyrussell"
-plugins=(git)
-
-source $ZSH/oh-my-zsh.sh
-
 # Alias
 alias vim=nvim
+export EDITOR=nvim
 
 # Git
 gitclone () {
@@ -56,36 +51,8 @@ project() {
         fi
 
         # Start a new tmux session in the specified directory
-        tmux new-session -s "$session_name" -c "$project_dir" \; setenv PROJECT_NAME "$project_name"
+        tmux new-session -s "$session_name" -c "$project_dir"
     fi
-}
-
-
-pyvcreate() {
-  local project_name=$(pwd | cut -d'/' -f 5)
-
-  if [[ ! -z "$project_name" ]]
-  then
-    python3 -m venv "$HOME/.pyvenvs/$project_name"
-    echo "Success: Virtualenv created. Activate with 'activate' command."
-  else
-    echo "Error: No virtualenv found."
-    return 1
-  fi
-
-}
-
-activate() {
-  local project_name=$(pwd | cut -d'/' -f 5)
-
-  if [[ ! -z "$project_name" ]]
-  then
-    source "$HOME/.pyvenvs/$project_name/bin/activate"
-  else
-    echo "Error: No virtualenv found."
-    return 1
-  fi
-
 }
 
 alias tn="tmux new -s"
@@ -101,7 +68,6 @@ alias zshreload="source ~/.zshrc"
 eval "$(starship init zsh)"
 
 export GPG_TTY=$(tty)
-export EDITOR=nvim
 
 # PATH
 export PATH="$PATH:/usr/local/go/bin"
