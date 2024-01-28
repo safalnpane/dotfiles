@@ -8,11 +8,15 @@ vim.opt.rtp:prepend(vim.env.LAZY or lazypath)
 
 
 require("lazy").setup({
+  -- {
+  --   "craftzdog/solarized-osaka.nvim",
+  --   lazy=false,
+  --   priority=1000,
+  --   opts={},
+  -- },
   {
-    "craftzdog/solarized-osaka.nvim",
-    lazy=false,
-    priority=1000,
-    opts={},
+     "ellisonleao/gruvbox.nvim",
+    priority = 1000
   },
   {
     'nvim-lualine/lualine.nvim',
@@ -25,8 +29,6 @@ require("lazy").setup({
   { "github/copilot.vim" },
   {
     "williamboman/mason.nvim",
-    "williamboman/mason-lspconfig.nvim",
-    "neovim/nvim-lspconfig",
   },
   {
   'neovim/nvim-lspconfig',
@@ -73,13 +75,6 @@ require("mason").setup({
 })
 
 
--- Lsp
-require("mason-lspconfig").setup {
-  ensure_installed = { "lua_ls", "pyright", "tsserver", "html", "cssls", "jsonls", "dockerls", "yamlls", "bashls", "vimls", "clangd", "rust_analyzer", "gopls" },
-  automatic_installation = true,
-}
-
-
 require("cmp").setup({
   snippet = {
     expand = function(args)
@@ -95,9 +90,5 @@ require("cmp").setup({
 })
 
 
--- Keymaps
-vim.keymap.set('n', "K", vim.lsp.buf.hover, {buffer = 0})
-vim.keymap.set('n', "gd", vim.lsp.buf.definition, {buffer = 0})
-vim.keymap.set('n', "gt", vim.lsp.buf.type_definition, {buffer = 0})
-vim.keymap.set('n', "gi", vim.lsp.buf.implementation, {buffer = 0})
-vim.keymap.set('n', "<Leader>r", vim.lsp.buf.rename, {buffer = 0})
+-- gruvbox
+require("gruvbox").setup({})

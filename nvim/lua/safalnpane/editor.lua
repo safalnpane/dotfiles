@@ -4,7 +4,7 @@
 vim.g.mapleader = ","
 
 --  Solarized-Osaka is the way to go.
-vim.cmd[[colorscheme solarized-osaka]]
+vim.cmd[[colorscheme gruvbox]]
 vim.opt.background = "dark"
 
 -- cursorline

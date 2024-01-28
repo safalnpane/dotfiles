@@ -3,8 +3,8 @@
 local keymap = vim.keymap
 
 -- Keymaps
-keymap.set("n", "ss", ":split<CR>")
-keymap.set("n", "sv", ":vsplit<CR>")
+keymap.set("n", "ss", ":split<CR><c-w>w")
+keymap.set("n", "sv", ":vsplit<CR><C-w>w")
 
 keymap.set("n", "sj", "<C-w>j")
 keymap.set("n", "sk", "<C-w>k")
