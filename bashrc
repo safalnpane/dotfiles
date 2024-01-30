@@ -1,3 +1,9 @@
+# Source git prompt
+source ~/.git-prompt.sh
+
+# Custom prompt
+PROMPT_COMMAND='PS1_CMD1=$(__git_ps1 " on (%s)")'; PS1='\n\[\e[38;5;136m\][\u\[\e[38;5;106m\]:\[\e[0m\]\h\[\e[38;5;136m\]]\[\e[38;5;160;1m\]${PS1_CMD1}\n\[\e[0m\](\[\e[38;5;184m\]\W\[\e[0m\])\$ '
+
 # Alias
 alias vim=nvim
 export EDITOR=nvim
